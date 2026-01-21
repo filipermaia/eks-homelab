@@ -1,6 +1,6 @@
 # EKS Homelab
 
-Terraform mono-repo for provisioning an EKS cluster on AWS with networking, managed node groups, and AWS Load Balancer Controller.
+Terraform repo for provisioning an EKS cluster on AWS with networking, managed node groups, and AWS Load Balancer Controller.
 
 ## Project Structure
 
@@ -22,7 +22,7 @@ Terraform mono-repo for provisioning an EKS cluster on AWS with networking, mana
 - **Cluster**: EKS 1.31, OIDC for IRSA, public and private endpoint access
 - **Nodes**: Managed node group in private subnets (default: 1 node)
 - **Load Balancer**: AWS ALB controller via Helm
-- **State**: S3 backend (`homelab-filipe/homelab/terraform.tfstate`)
+- **State**: S3 backend (`needs to be informed/created`)
 
 ## Prerequisites
 
@@ -39,8 +39,8 @@ cd eks-homelab
 
 aws configure
 terraform init
-terraform plan -var-file=terraform.tfvars
-terraform apply -var-file=terraform.tfvars
+terraform plan 
+terraform apply 
 
 # Configure kubectl
 aws eks update-kubeconfig --name $(terraform output -raw cluster_name) --region us-east-1
@@ -61,8 +61,6 @@ tags         = {}
 
 - `cluster_name`: EKS cluster name
 - `cluster_endpoint`: Kubernetes API endpoint
-- `cluster_ca_data`: CA certificate
-- `oidc`: OIDC issuer URL
 
 ## Common Tasks
 
