@@ -9,11 +9,11 @@ variable "project_name" {
 }
 
 variable "region" {
-  type = string
+  type        = string
   description = "AWS region to deploy the resources"
 }
 
 variable "tags" {
-  type = map(string)
+  type        = map(string)
   description = "Tags to be applied to all resources"
 }
