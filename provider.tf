@@ -13,11 +13,6 @@ terraform {
       version = "3.1.1"
     }
   }
-  backend "s3" {
-    bucket = "homelab-filipe"
-    key    = "homelab/terraform.tfstate"
-    region = "us-east-1"
-  }
 }
 
 provider "kubernetes" {
